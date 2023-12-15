@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons, Links, and Movable Square</title>
+</head>
+<body>
+
+
+    <h1>Visit these sites:</h1>
+
+
+    <ul>
+        <li><a href="https://www.example.com" target="_blank">Example Website</a></li>
+        <li><a href="https://www.google.com" target="_blank">Google</a></li>
+        <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+    </ul>
+
+
+    <!-- Button 1 to show the movable square -->
+    <button onclick="showAlert('Button 1'); initializeMovableSquare()">Button 1</button>
+
+
+    <!-- 9 more buttons -->
+    <button onclick="showAlert('Button 2')">Button 2</button>
+    <button onclick="showAlert('Button 3')">Button 3</button>
+    <button onclick="showAlert('Button 4')">Button 4</button>
+    <button onclick="showAlert('Button 5')">Button 5</button>
+    <button onclick="showAlert('Button 6')">Button 6</button>
+    <button onclick="showAlert('Button 7')">Button 7</button>
+    <button onclick="showAlert('Button 8')">Button 8</button>
+    <button onclick="showAlert('Button 9')">Button 9</button>
+    <button onclick="showAlert('Button 10')">Button 10</button>
+
+
+    <script>
+        function showAlert(message) {
+            alert('Hello! ' + message);
+        }
+
+
+        function initializeMovableSquare() {
+            var char = document.createElement("div");
+            char.style.position = "absolute";
+            char.style.left = "0px";
+            char.style.top = "0px";
+            char.style.width = "200px";
+            char.style.height = "50px";
+            char.style.background = "red";
+            char.style.zIndex = "1000";
+            document.body.appendChild(char);
+
+
+            document.onkeydown = function (event) {
+                switch (event.keyCode) {
+                    case 37:
+                        char.style.left = (parseInt(char.style.left) - 10) + "px";
+                        break;
+                    case 38:
+                        char.style.top = (parseInt(char.style.top) - 10) + "px";
+                        break;
+                    case 39:
+                        char.style.left = (parseInt(char.style.left) + 10) + "px";
+                        break;
+                    case 40:
+                        char.style.top = (parseInt(char.style.top) + 10) + "px";
+                        break;
+                }
+            };
+        }
+    </script>
+
+
+</body>
+</html>
